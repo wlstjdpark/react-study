@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 
 class EventPractice extends React.Component {
+  input = React.createRef();
+  handleFocus = e => {
+    this.input.current.focus();
+  };
   state = {
     username: '',
     message: ''
@@ -46,6 +50,7 @@ class EventPractice extends React.Component {
           onKeyPress={this.handleKeyPress}
         />
         <button onClick={this.handleClick}>확인</button>
+        <input ref={this.input}></input>
       </div>
     );
   }

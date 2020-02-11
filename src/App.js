@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import EventPractice from './EventPractice';
+import ValidationSample from './ValidationSample';
 import './App.css';
 
 const App = () => {
   return (
     <div>
-      <EventPractice></EventPractice>
+      <ValidationSample></ValidationSample>
     </div>
   );
 };
