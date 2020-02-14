@@ -1,24 +1,16 @@
-import React, { Component } from 'react';
-import LifeCycleSample from './Chapter07/LifeCycleSample';
-import ErrorBoundary from './Chapter07/ErrorBoundary';
+import React from 'react';
+import InfoUseReducer from './Chapter08/InfoUseReducer';
 import './App.css';
 
 const App = () => {
-  const [color, setColor] = React.useState('#000000');
-
-  const getRandomColor = () => {
-    return '#' + Math.floor(Math.random() * 16777215).toString(16);
-  };
-
-  const onClick = () => {
-    setColor(getRandomColor());
-  };
+  const [visible, setVisible] = React.useState(true);
   return (
     <div>
-      <button onClick={onClick}>랜덤 색상</button>
-      <ErrorBoundary>
-        <LifeCycleSample color={color}></LifeCycleSample>
-      </ErrorBoundary>
+      <button onClick={() => setVisible(!visible)}>
+        {visible ? '숨기기' : '보이기'}
+      </button>
+      <hr></hr>
+      {visible && <InfoUseReducer />}
     </div>
   );
 };
