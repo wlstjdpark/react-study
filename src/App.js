@@ -1,5 +1,5 @@
 import React from 'react';
-import InfoUseReducer from './Chapter08/InfoUseReducer';
+// import StyledComponent from './Chapter09/StyledComponent';
 import './App.css';
 
 const App = () => {
@@ -10,7 +10,7 @@ const App = () => {
         {visible ? '숨기기' : '보이기'}
       </button>
       <hr></hr>
-      {visible && <InfoUseReducer />}
+      {/* {visible && <StyledComponent />} */}
     </div>
   );
 };
