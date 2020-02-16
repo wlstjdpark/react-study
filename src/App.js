@@ -1,17 +1,14 @@
 import React from 'react';
-import StyledComponent from './Chapter09/StyledComponent';
-import './App.css';
+import TodoTemplate from './Chapter10/TodoTemplate';
+import TodoInsert from './Chapter10/TodoInsert';
+import TodoList from './Chapter10/TodoList';
 
 const App = () => {
-  const [visible, setVisible] = React.useState(true);
   return (
-    <div>
-      <button onClick={() => setVisible(!visible)}>
-        {visible ? '숨기기' : '보이기'}
-      </button>
-      <hr></hr>
-      {visible && <StyledComponent />}
-    </div>
+    <TodoTemplate>
+      <TodoInsert></TodoInsert>
+      <TodoList></TodoList>
+    </TodoTemplate>
   );
 };
 
