@@ -1,6 +1,11 @@
 import React from 'react';
-import { MdCheckBoxOutlineBlank, MdRemoveCircleOutline } from 'react-icons/md';
+import {
+  MdCheckBox,
+  MdCheckBoxOutlineBlank,
+  MdRemoveCircleOutline,
+} from 'react-icons/md';
 import styled from 'styled-components';
+import cn from 'classnames';
 
 const ListItem = styled.div`
   padding: 1rem;
@@ -47,15 +52,21 @@ const ListItem = styled.div`
   }
 `;
 
-const TodoListItem = () => {
+const TodoListItem = ({ todo, onRemove, onToggle }) => {
+  const { id, text, checked } = todo;
   return (
     <ListItem>
-      <div className="checkbox">
-        <MdCheckBoxOutlineBlank />
-        <div className="text">할 일</div>
+      <div
+        className={cn('checkbox', { checked })}
+        onClick={() => {
+          onToggle(id);
+        }}
+      >
+        {checked ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
+        <div className="text">{text}</div>
       </div>
       <div className="remove">
-        <MdRemoveCircleOutline />
+        <MdRemoveCircleOutline onClick={() => onRemove(id)} />
       </div>
     </ListItem>
   );
